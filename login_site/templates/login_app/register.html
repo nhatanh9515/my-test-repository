@@ -1,0 +1,16 @@
+{% extends 'login_app/base.html' %}
+{% block body_block %}
+
+{% if register %}
+<h1>Thank you for signing up</h1>
+{% else %}
+<h1>Don't have an account? Let's sign up!</h1>
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {{ basic_form.as_p }}
+  {{ additional_form.as_p }}
+  <input type="submit" value="Sign Up">
+</form>
+{% endif %}
+
+{% endblock %}
